@@ -1,4 +1,6 @@
-﻿namespace LabFashion.Properties.Models
+﻿using LabFashion.Models.Enums;
+
+namespace LabFashion.Models
 {
     public class Usuario : Pessoa
     {
