@@ -25,7 +25,7 @@ namespace LabFashion.Services
 
                 var usuario = new Usuario
                 {
-                    NomeCommpleto = postUsuario.NomeCommpleto,
+                    NomeCompleto = postUsuario.NomeCommpleto,
                     Genero = postUsuario.Genero,
                     CpfCnpj = postUsuario.CpfCnpj,
                     Email = postUsuario.Email,
@@ -53,7 +53,7 @@ namespace LabFashion.Services
                     return null;
 
                 if (!string.IsNullOrEmpty(putUsuario.NomeCommpleto))
-                    usuario.NomeCommpleto = putUsuario.NomeCommpleto;
+                    usuario.NomeCompleto = putUsuario.NomeCommpleto;
 
                 if (!string.IsNullOrEmpty(putUsuario.Genero))
                     usuario.Genero = putUsuario.Genero;

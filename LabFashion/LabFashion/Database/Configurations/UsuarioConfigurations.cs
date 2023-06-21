@@ -11,7 +11,7 @@ namespace ProjetoFashion.Database.Configurations
         {
             _ = builder.HasKey(u => u.Id);
 
-            _ = builder.Property(u => u.NomeCommpleto)
+            _ = builder.Property(u => u.NomeCompleto)
                 .HasMaxLength(Pessoa.NomeMaxLength)
                 .IsRequired();
 
