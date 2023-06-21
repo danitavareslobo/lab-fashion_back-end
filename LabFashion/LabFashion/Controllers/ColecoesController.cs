@@ -1,4 +1,5 @@
-﻿using LabFashion.Models.Enums;
+﻿using LabFashion.Models;
+using LabFashion.Models.Enums;
 using LabFashion.Models.ViewModels;
 using LabFashion.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -39,7 +40,25 @@ namespace LabFashion.Controllers
         }
 
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] PutColecao colecao)
+        {
+            try
+            {
+                var result = await _service.UpdateAsync(colecao);
+
+                if (result == null)
+                    return NotFound("Coleção não encontrado");
+
+                if (result == false)
+                    return BadRequest("Erro ao alterar coleção");
+
+                return Ok(colecao);
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Erro ao alterar coleção");
 
 
-    }
+            }
 }

@@ -30,7 +30,15 @@ namespace LabFashion.Database.Repositories
             }
         }
 
+        public Task GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
 
+        public Task<bool?> UpdateAsync(object colecao)
+        {
+            throw new NotImplementedException();
         }
     }
 }
+

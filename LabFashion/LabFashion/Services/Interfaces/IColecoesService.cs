@@ -6,5 +6,6 @@ namespace LabFashion.Services.Interfaces
     public interface IColecoesService
     {
         Task<bool?> CreateAsync(PostColecao colecao);
+        Task<bool> UpdateAsync(PutColecao colecao);
     }
 }

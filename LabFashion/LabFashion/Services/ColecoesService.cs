@@ -4,6 +4,8 @@ using LabFashion.Models.ViewModels;
 using LabFashion.Models;
 using LabFashion.Services.Interfaces;
 using LabFashion.Controllers;
+using LabFashion.Database.Repositories;
+using System.Text.RegularExpressions;
 
 namespace LabFashion.Services
 {
@@ -41,6 +43,49 @@ namespace LabFashion.Services
             {
                 return false;
             }
+        }
+
+        public async Task<bool?> UpdateAsync(PutColecao putColecao)
+        {
+            try
+            {
+                var colecao = await _colecoesRepository.GetByIdAsync(putColecao.Id);
+
+                if (colecao == null)
+                    return null;
+
+                if (!string.IsNullOrEmpty(putColecao.NomeColecao))
+                    colecao.NomeColecao = putColecao.NomeColecao;
+
+                if (putColecao.IdResponsavel > 0)
+                    colecao.IdResponsavel = putColecao.IdResponsavel;
+
+                if (!string.IsNullOrEmpty(putColecao.Marca))
+                    colecao.Marca = putColecao.Marca;
+
+                if (putColecao.Orcamento > 0)
+                    colecao.Orcamento = putColecao.Orcamento;
+
+                if (putColecao.AnoLancamento != DateTime.MinValue)
+                    colecao.AnoLancamento = putColecao.AnoLancamento;
+
+                if (!Enum.IsDefined(typeof(Estacao), putColecao.Estacao))
+                    colecao.Estacao = putColecao.Estacao;
+
+                if (!Enum.IsDefined(typeof(EstadoSistema), putColecao.EstadoSistema))
+                    colecao.EstadoSistema = putColecao.EstadoSistema;
+
+                return await _colecoesRepository.UpdateAsync(colecao);
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        Task<bool> IColecoesService.UpdateAsync(PutColecao colecao)
+        {
+            throw new NotImplementedException();
         }
     }
 }
