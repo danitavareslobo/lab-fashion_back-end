@@ -1,9 +1,7 @@
 ﻿using LabFashion.Models;
 using LabFashion.Models.Enums;
-
 using Microsoft.EntityFrameworkCore;
 
-using System.Reflection.Metadata;
 
 namespace LabFashion.Database
 {
@@ -15,6 +13,7 @@ namespace LabFashion.Database
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Colecao> Colecoes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
