@@ -37,6 +37,10 @@ namespace ProjetoFashion.Database.Configurations
             _ = builder.HasOne(u => u.Usuario)
                 .WithOne(c => c.Colecao)
                 .HasForeignKey<Colecao>(c => c.IdResponsavel);
+
+            _ = builder.HasMany(u => u.Modelos)
+                .WithOne(c => c.Colecao)
+                .HasForeignKey(c => c.IdColecaoRelacionada);
         }
     }
 }

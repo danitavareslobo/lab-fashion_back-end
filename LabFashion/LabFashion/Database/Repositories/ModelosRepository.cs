@@ -73,5 +73,24 @@ namespace LabFashion.Database.Repositories
                 return null;
             }
         }
+
+        public async Task<bool?> DeleteAsync(int id)
+        {
+            try
+            {
+                var modelo = await _context.Modelos.FindAsync(id);
+
+                if (modelo == null)
+                    return null;
+
+                _context.Colecoes.Remove(modelo);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

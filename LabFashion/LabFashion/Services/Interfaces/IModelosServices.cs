@@ -11,5 +11,6 @@ namespace LabFashion.Services.Interfaces
         Task<bool> UpdateAsync(PostModelo modelo);
         Task<List<Modelo>> GetAllAsync(Layout? layout);
         Task<Modelo?> GetByIdAsync(int id);
+        Task<bool?> DeleteAsync(int id);
     }
 }

@@ -10,5 +10,6 @@ namespace LabFashion.Database.Repositories.Interfaces
         Task<List<Modelo>> GetAllAsync(Layout? layout);
         Task<Modelo> GetByIdAsync(int id);
         Task<bool?> UpdateAsync(Modelo modelo);
+        Task<bool?> DeleteAsync(int id);
     }
 }

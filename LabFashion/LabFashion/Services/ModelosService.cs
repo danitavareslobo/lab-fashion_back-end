@@ -80,5 +80,14 @@ namespace LabFashion.Services
         {
             return await _modelosRepository.GetByIdAsync(id);
         }
+
+        public async Task<bool?> DeleteAsync(int id)
+        {
+            var modelo = await GetByIdAsync(id);
+
+            if (modelo == null) return null;
+
+            return await _modelosRepository.DeleteAsync(id);
+        }
     }
 }

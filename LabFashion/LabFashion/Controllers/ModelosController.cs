@@ -85,5 +85,23 @@ namespace LabFashion.Controllers
                 return BadRequest("Erro ao obter modelo");
             }
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+            try
+            {
+                var result = await _service.DeleteAsync(id);
+
+                if (result == null)
+                    return NotFound("Código não existente na base de dados");
+
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, "Erro ao excluir modelo");
+            }
+        }
     }
 }

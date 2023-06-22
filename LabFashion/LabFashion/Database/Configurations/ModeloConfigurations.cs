@@ -23,10 +23,6 @@ namespace ProjetoFashion.Database.Configurations
             _ = builder.Property(u => u.Layout)
                 .IsRequired();
 
-            _= builder.HasMany(u => u.Colecao)
-                .WithOne(c => c.Modelo)
-                .HasForeignKey<Modelo>(c => c.IdColecaoRelacionada);
-
         }
     }
 }
