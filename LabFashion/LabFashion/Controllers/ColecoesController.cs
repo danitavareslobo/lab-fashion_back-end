@@ -61,4 +61,27 @@ namespace LabFashion.Controllers
 
 
             }
+        }
+
+        [HttpPut("{id}/status")]
+        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] EstadoSistema status)
+        {
+            try
+            {
+                var result = await _service.UpdateEstadoSistemaAsync(id, status);
+
+                if (result == null)
+                    return NotFound("Código/Estado no Sistema não encontrado");
+
+                if (result == false)
+                    return BadRequest("Dados Inválidos");
+
+                return Ok(status);
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Erro ao alterar Estado da Coleção no Sistema");
+            }
+        }
+    }
 }

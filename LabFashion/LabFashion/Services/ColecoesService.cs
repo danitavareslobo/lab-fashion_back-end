@@ -83,6 +83,26 @@ namespace LabFashion.Services
             }
         }
 
+        public async Task<bool?> UpdateEstadoSistemaAsync(int id, EstadoSistema status)
+        {
+            try
+            {
+                var usuario = await _colecoesRepository.GetByIdAsync(id);
+
+                if (usuario == null)
+                    return null;
+
+                if (Enum.IsDefined(typeof(EstadoSistema), status))
+                    return null;
+
+                return await _colecoesRepository.UpdateEstadoSistemaAsync(id, status);
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
         Task<bool> IColecoesService.UpdateAsync(PutColecao colecao)
         {
             throw new NotImplementedException();

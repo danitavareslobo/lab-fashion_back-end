@@ -1,5 +1,9 @@
 ﻿using LabFashion.Database.Repositories.Interfaces;
 using LabFashion.Models;
+using LabFashion.Models.Enums;
+
+using Microsoft.EntityFrameworkCore;
+
 namespace LabFashion.Database.Repositories
 {
     public class ColecoesRepository : IColecoesRepository
@@ -9,11 +13,6 @@ namespace LabFashion.Database.Repositories
         public ColecoesRepository(LabFashionContext context)
         {
             _context = context;
-        }
-
-        public Task<bool> CheckNomeColecaoAsync(object nomeColecao)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<bool?> CreateAsync(Colecao colecao)
@@ -30,15 +29,63 @@ namespace LabFashion.Database.Repositories
             }
         }
 
-        public Task GetByIdAsync(int id)
+        public async Task<bool?> UpdateAsync(Colecao colecao)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Colecoes.Update(colecao);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
-        public Task<bool?> UpdateAsync(object colecao)
+        public async Task<bool?> UpdateEstadoSistemaAsync(int id, EstadoSistema status)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var colecao = await GetByIdAsync(id);
+
+                if (colecao == null)
+                    return null;
+
+                colecao.EstadoSistema = status;
+                _context.Colecoes.Update(colecao);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
-    }
+
+        public async Task<Colecao?> GetByIdAsync(int id)
+        {
+            try
+            {
+                return await _context.Colecoes.FindAsync(id);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> CheckNomeColecaoAsync(object nomeColecao)
+        {
+            try
+            {
+                return await _context.Colecoes.AnyAsync(u => u.NomeColecao == nomeColecao);
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }        }
 }
+
 

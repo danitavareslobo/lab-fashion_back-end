@@ -1,4 +1,5 @@
 ﻿using LabFashion.Controllers;
+using LabFashion.Models.Enums;
 using LabFashion.Models.ViewModels;
 
 namespace LabFashion.Services.Interfaces
@@ -7,5 +8,6 @@ namespace LabFashion.Services.Interfaces
     {
         Task<bool?> CreateAsync(PostColecao colecao);
         Task<bool> UpdateAsync(PutColecao colecao);
+        Task<bool?> UpdateEstadoSistemaAsync(int id, EstadoSistema status);
     }
 }

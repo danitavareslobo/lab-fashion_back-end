@@ -9,20 +9,27 @@ namespace LabFashion.Models.ViewModels
         [IgnoreDataMember]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "O campo Nome Completo é obrigatório.")]
-        public string NomeCommpleto { get; set; }
+        [Required(ErrorMessage = "O campo Nome da Coleção é obrigatório.")]
+        public string NomeColecao { get; set; }
 
-        [Required(ErrorMessage = "O campo Gênero é obrigatório.")]
-        public string Genero { get; set; }
+        [Required(ErrorMessage = "O campo Id do Responsavel é obrigatório.")]
+        public int IdResponsavel { get; set; }
 
-        [Required(ErrorMessage = "O campo Data de Nascimento é obrigatório.")]
-        public DateTime DataNascimento { get; set; }
+        [Required(ErrorMessage = "O campo Marca é obrigatório.")]
+        public string Marca { get; set; }
 
-        [Required(ErrorMessage = "O campo Telefone é obrigatório.")]
-        public string Telefone { get; set; }
+        [Required(ErrorMessage = "O campo Orçamento é obrigatório.")]
+        public double Orcamento { get; set; }
 
-        [Required(ErrorMessage = "O campo Tipo de Usuário é obrigatório.")]
-        [EnumDataType(typeof(TipoUsuario), ErrorMessage = "O campo Tipo de Usuário é inválido.")]
-        public TipoUsuario TipoUsuario { get; set; }
+        [Required(ErrorMessage = "O campo Ano de Lançamento é obrigatório.")]
+        public DateTime AnoLancamento { get; set; }
+
+        [Required(ErrorMessage = "O campo Estação é obrigatório.")]
+        [EnumDataType(typeof(Estacao), ErrorMessage = "O campo Estação é inválido.")]
+        public Estacao Estacao { get; set; }
+
+        [Required(ErrorMessage = "O campo Estado no Sistema é obrigatório.")]
+        [EnumDataType(typeof(EstadoSistema), ErrorMessage = "O campo Estado no Sistema é inválido.")]
+        public EstadoSistema EstadoSistema { get; set; }
     }
 }
