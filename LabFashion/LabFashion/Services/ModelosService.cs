@@ -41,5 +41,34 @@ namespace LabFashion.Services
                 return false;
             }
         }
+
+        public async Task<bool?> UpdateAsync(PutModelo putModelo)
+        {
+            try
+            {
+                var modelo = await _modelosRepository.GetByIdAsync(putModelo.Id);
+
+                if (modelo == null)
+                    return null;
+
+                if (!string.IsNullOrEmpty(putModelo.NomeModelo))
+                    modelo.NomeModelo = putModelo.NomeModelo;
+
+                if (putModelo.IdColecaoRelacionada > 0)
+                    modelo.IdColecaoRelacionada = putModelo.IdColecaoRelacionada;
+
+                if (!Enum.IsDefined(typeof(Tipo), putModelo.Tipo))
+                    modelo.Tipo = putModelo.Tipo;
+
+                if (!Enum.IsDefined(typeof(Layout), putModelo.Layout))
+                    modelo.Layout = putModelo.Layout;
+
+                return await _modelosRepository.UpdateAsync(modelo);
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

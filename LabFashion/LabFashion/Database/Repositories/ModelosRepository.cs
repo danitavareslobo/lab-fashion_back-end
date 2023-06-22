@@ -32,5 +32,19 @@ namespace LabFashion.Database.Repositories
                 return false;
             }
         }
+
+        public async Task<bool?> UpdateAsync(Modelo modelo)
+        {
+            try
+            {
+                _context.Modelos.Update(modelo);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

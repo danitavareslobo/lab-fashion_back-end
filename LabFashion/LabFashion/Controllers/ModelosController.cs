@@ -38,5 +38,26 @@ namespace LabFashion.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, "Erro ao criar modelo");
             }
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] PostModelo modelo)
+        {
+            try
+            {
+                var result = await _service.UpdateAsync(modelo);
+
+                if (result == null)
+                    return NotFound("Modelo não encontrado");
+
+                if (result == false)
+                    return BadRequest("Erro ao alterar modelo");
+
+                return Ok(modelo);
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Erro ao alterar modelo");
+            }
+        }
     }
 }

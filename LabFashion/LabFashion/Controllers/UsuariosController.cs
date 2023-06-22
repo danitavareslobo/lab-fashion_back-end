@@ -58,6 +58,7 @@ namespace LabFashion.Controllers
                 return BadRequest("Erro ao alterar usuário");
             }
         }
+
         [HttpPut("{id}/status")]
         public async Task<IActionResult> Put([FromRoute] int id, [FromBody] Status status)
         {

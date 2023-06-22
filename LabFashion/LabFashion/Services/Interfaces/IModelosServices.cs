@@ -8,6 +8,6 @@ namespace LabFashion.Services.Interfaces
     public interface IModelosService
     {
         Task<bool?> CreateAsync(PostModelo modelo);
-
+        Task<bool> UpdateAsync(PostModelo modelo);
     }
 }
