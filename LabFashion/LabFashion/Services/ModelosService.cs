@@ -75,5 +75,10 @@ namespace LabFashion.Services
         {
             return await _modelosRepository.GetAllAsync(layout);
         }
+
+        public async Task<Modelo?> GetByIdAsync(int id)
+        {
+            return await _modelosRepository.GetByIdAsync(id);
+        }
     }
 }

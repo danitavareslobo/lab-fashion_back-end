@@ -51,7 +51,7 @@ namespace LabFashion.Database.Repositories
         {
             try
             {
-                if (status == null)
+                if (layout == null)
                     return await _context.Modelos.ToListAsync();
 
                 return await _context.Modelos.Where(u => u.Layout == layout).ToListAsync();
@@ -59,6 +59,18 @@ namespace LabFashion.Database.Repositories
             catch (Exception e)
             {
                 return new List<Modelo>();
+            }
+        }
+
+        public async Task<Modelo?> GetByIdAsync(int id)
+        {
+            try
+            {
+                return await _context.Modelos.FindAsync(id);
+            }
+            catch (Exception e)
+            {
+                return null;
             }
         }
     }
