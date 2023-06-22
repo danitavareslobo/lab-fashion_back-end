@@ -12,5 +12,6 @@ namespace LabFashion.Services.Interfaces
         Task<bool?> UpdateEstadoSistemaAsync(int id, EstadoSistema status);
         Task<List<Colecao?>> GetAllAsync(EstadoSistema? status);
         Task<object?> GetByIdAsync(int id);
+        Task<bool?> DeleteAsync(int id);
     }
 }

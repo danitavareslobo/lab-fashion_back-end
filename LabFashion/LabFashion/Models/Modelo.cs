@@ -12,5 +12,6 @@ namespace LabFashion.Models
         
         public Tipo Tipo { get; set; }
         public Layout Layout { get; set; }
+        public virtual Colecao Colecao { get; set; }
     }
 }

@@ -87,9 +87,9 @@ namespace LabFashion.Services
         {
             try
             {
-                var usuario = await _colecoesRepository.GetByIdAsync(id);
+                var colecao = await _colecoesRepository.GetByIdAsync(id);
 
-                if (usuario == null)
+                if (colecao == null)
                     return null;
 
                 if (Enum.IsDefined(typeof(EstadoSistema), status))
@@ -116,6 +116,20 @@ namespace LabFashion.Services
         public async Task<Colecao?> GetByIdAsync(int id)
         {
             return await _colecoesRepository.GetByIdAsync(id);
+        }
+
+        public async Task<bool?> DeleteAsync(int id)
+        {
+            var colecao = await GetByIdAsync(id);
+
+            if (colecao == null)
+                return null;
+
+            if (colecao.EstadoSistema != EstadoSistema.Inativa) return false;
+
+            if (colecao.Modelos.Any()) return false;
+
+            return await _colecoesRepository.DeleteAsync(id);
         }
     }
 }

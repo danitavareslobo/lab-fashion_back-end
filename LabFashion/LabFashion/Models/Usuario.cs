@@ -10,5 +10,7 @@ namespace LabFashion.Models
         public string Email { get; set; }
         public TipoUsuario TipoUsuario { get; set; }
         public Status Status { get; set; }
+
+        public virtual Colecao Colecao { get; set; }
     }
 }

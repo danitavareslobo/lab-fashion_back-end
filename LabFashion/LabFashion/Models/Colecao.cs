@@ -17,5 +17,8 @@ namespace LabFashion.Models
         public DateTime AnoLancamento { get; set; }
         public Estacao Estacao { get; set; }
         public EstadoSistema EstadoSistema { get; set; }
+
+        public virtual Usuario Usuario { get; set; }
+        public virtual List<Modelo> Modelos { get; set; }
     }
 }

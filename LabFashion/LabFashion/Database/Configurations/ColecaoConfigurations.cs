@@ -34,6 +34,9 @@ namespace ProjetoFashion.Database.Configurations
             _ = builder.Property(u => u.EstadoSistema)
                 .IsRequired();
 
+            _ = builder.HasOne(u => u.Usuario)
+                .WithOne(c => c.Colecao)
+                .HasForeignKey<Colecao>(c => c.IdResponsavel);
         }
     }
 }

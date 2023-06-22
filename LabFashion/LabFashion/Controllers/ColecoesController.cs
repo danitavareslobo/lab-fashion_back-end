@@ -58,8 +58,6 @@ namespace LabFashion.Controllers
             catch (Exception e)
             {
                 return BadRequest("Erro ao alterar coleção");
-
-
             }
         }
 
@@ -107,6 +105,26 @@ namespace LabFashion.Controllers
             catch (Exception e)
             {
                 return BadRequest("Erro ao obter coleções");
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+            try
+            {
+                var result = await _service.DeleteAsync(id);
+
+                if (result == null)
+                   return NotFound("Código não existente na base de dados");
+
+                if (result == false) return BadRequest("Coleção não pôde ser excluída pois está ativa ou possui modelos vinculados");
+
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, "Erro ao excluir coleção");
             }
         }
     }
