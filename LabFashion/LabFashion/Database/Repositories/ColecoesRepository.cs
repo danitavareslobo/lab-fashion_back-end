@@ -85,7 +85,23 @@ namespace LabFashion.Database.Repositories
             {
                 return false;
             }
-        }        }
+        }
+
+        public async Task<List<Colecao>> GetAllAsync(EstadoSistema? status)
+        {
+            try
+            {
+                if (status == null)
+                    return await _context.Colecoes.ToListAsync();
+
+                return await _context.Colecoes.Where(u => u.EstadoSistema == status).ToListAsync();
+            }
+            catch (Exception e)
+            {
+                return new List<Colecao>();
+            }
+        }
+    }
 }
 
 

@@ -107,5 +107,10 @@ namespace LabFashion.Services
         {
             throw new NotImplementedException();
         }
+
+        public async Task<List<Colecao>> GetAllAsync(EstadoSistema? status)
+        {
+            return await _colecoesRepository.GetAllAsync(status);
+        }
     }
 }

@@ -83,5 +83,18 @@ namespace LabFashion.Controllers
                 return BadRequest("Erro ao alterar Estado da Coleção no Sistema");
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery] EstadoSistema? status)
+        {
+            try
+            {
+                return Ok(await _service.GetAllAsync(status));
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Erro ao listar coleções");
+            }
+        }
     }
 }
