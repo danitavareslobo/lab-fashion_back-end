@@ -14,6 +14,7 @@ namespace LabFashion.Database
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Colecao> Colecoes { get; set; }
+        public DbSet<Modelo> Modelos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
