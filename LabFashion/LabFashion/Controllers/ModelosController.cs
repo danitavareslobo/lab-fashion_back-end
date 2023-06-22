@@ -59,5 +59,18 @@ namespace LabFashion.Controllers
                 return BadRequest("Erro ao alterar modelo");
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery] Layout? layout)
+        {
+            try
+            {
+                return Ok(await _service.GetAllAsync(layout));
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Erro ao listar modelos");
+            }
+        }
     }
 }

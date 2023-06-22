@@ -70,5 +70,10 @@ namespace LabFashion.Services
                 return false;
             }
         }
+
+        public async Task<List<Modelo>> GetAllAsync(Layout? layout)
+        {
+            return await _modelosRepository.GetAllAsync(layout);
+        }
     }
 }

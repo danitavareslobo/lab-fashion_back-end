@@ -46,5 +46,20 @@ namespace LabFashion.Database.Repositories
                 return false;
             }
         }
+
+        public async Task<List<Modelo>> GetAllAsync(Layout? layout)
+        {
+            try
+            {
+                if (status == null)
+                    return await _context.Modelos.ToListAsync();
+
+                return await _context.Modelos.Where(u => u.Layout == layout).ToListAsync();
+            }
+            catch (Exception e)
+            {
+                return new List<Modelo>();
+            }
+        }
     }
 }
