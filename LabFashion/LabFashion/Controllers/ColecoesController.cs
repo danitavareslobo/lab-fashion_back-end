@@ -96,5 +96,18 @@ namespace LabFashion.Controllers
                 return BadRequest("Erro ao listar coleções");
             }
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get([FromRoute] int id)
+        {
+            try
+            {
+                return Ok(await _service.GetByIdAsync(id));
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Erro ao obter coleções");
+            }
+        }
     }
 }

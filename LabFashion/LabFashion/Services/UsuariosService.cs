@@ -52,8 +52,8 @@ namespace LabFashion.Services
                 if (usuario == null)
                     return null;
 
-                if (!string.IsNullOrEmpty(putUsuario.NomeCommpleto))
-                    usuario.NomeCompleto = putUsuario.NomeCommpleto;
+                if (!string.IsNullOrEmpty(putUsuario.NomeCompleto))
+                    usuario.NomeCompleto = putUsuario.NomeCompleto;
 
                 if (!string.IsNullOrEmpty(putUsuario.Genero))
                     usuario.Genero = putUsuario.Genero;

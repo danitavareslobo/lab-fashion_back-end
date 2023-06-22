@@ -8,7 +8,7 @@ namespace LabFashion.Services.Interfaces
     {
         Task<bool?> CreateAsync(PostUsuario usuario);
         Task<List<Usuario?>> GetAllAsync(Status? status);
-        Task<bool> UpdateAsync(PutUsuario usuario);
+        Task<bool?> UpdateAsync(PutUsuario usuario);
         Task<bool> UpdateStatusAsync(int id, Status status);
         Task<Usuario?> GetByIdAsync(int id);
     }

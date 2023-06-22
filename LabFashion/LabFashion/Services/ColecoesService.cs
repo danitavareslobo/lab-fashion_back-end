@@ -34,7 +34,7 @@ namespace LabFashion.Services
                     Orcamento = postColecao.Orcamento,
                     AnoLancamento = postColecao.AnoLancamento,
                     Estacao = postColecao.Estacao,
-                    EstadoSistema = postColecao.EstadoSistema                   
+                    EstadoSistema = postColecao.EstadoSistema
                 };
 
                 return await _colecoesRepository.CreateAsync(colecao);
@@ -111,6 +111,11 @@ namespace LabFashion.Services
         public async Task<List<Colecao>> GetAllAsync(EstadoSistema? status)
         {
             return await _colecoesRepository.GetAllAsync(status);
+        }
+
+        public async Task<Colecao?> GetByIdAsync(int id)
+        {
+            return await _colecoesRepository.GetByIdAsync(id);
         }
     }
 }

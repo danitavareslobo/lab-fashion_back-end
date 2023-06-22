@@ -101,6 +101,7 @@ namespace LabFashion.Database.Repositories
                 return new List<Colecao>();
             }
         }
+
     }
 }
 

@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 
 namespace LabFashion.Models.ViewModels
 {
-    public class PutUsuario
+    public class PutColecao
     {
         [IgnoreDataMember]
         public int Id { get; set; }
