@@ -14,9 +14,16 @@ namespace LabFashion.Database.Repositories
             _context = context;
         }
 
-        public Task<bool> CheckNomeModeloAsync(string nomeModelo)
+        public async Task<bool> CheckNomeModeloAsync(string nomeModelo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _context.Modelos.AnyAsync(u => u.NomeModelo == nomeModelo);
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public async Task<bool?> CreateAsync(Modelo modelo)
@@ -83,7 +90,7 @@ namespace LabFashion.Database.Repositories
                 if (modelo == null)
                     return null;
 
-                _context.Colecoes.Remove(modelo);
+                _context.Modelos.Remove(modelo);
                 await _context.SaveChangesAsync();
                 return true;
             }

@@ -7,10 +7,9 @@
         Bolsa = 3,
         Bone = 4,
         Calca = 5,
-        Bolsa = 6,
-        Calcado = 7,
-        Camisa = 8,
-        Chapeu = 9,
-        Saia = 10
+        Calcado = 6,
+        Camisa = 7,
+        Chapeu = 8,
+        Saia = 9
     }
 }

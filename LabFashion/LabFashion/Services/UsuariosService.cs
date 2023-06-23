@@ -3,15 +3,18 @@ using LabFashion.Models.Enums;
 using LabFashion.Models.ViewModels;
 using LabFashion.Models;
 using LabFashion.Services.Interfaces;
+using AutoMapper;
 
 namespace LabFashion.Services
 {
     public class UsuariosService : IUsuariosService
     {
+        private readonly IMapper _mapper;
         private readonly IUsuariosRepository _usuariosRepository;
 
-        public UsuariosService(IUsuariosRepository usuariosRepository)
+        public UsuariosService(IMapper mapper, IUsuariosRepository usuariosRepository)
         {
+            _mapper = mapper;
             _usuariosRepository = usuariosRepository;
         }
 
@@ -23,17 +26,19 @@ namespace LabFashion.Services
                 if (await _usuariosRepository.CheckCpfCnpjAsync(postUsuario.CpfCnpj))
                     return null;
 
-                var usuario = new Usuario
-                {
-                    NomeCompleto = postUsuario.NomeCommpleto,
-                    Genero = postUsuario.Genero,
-                    CpfCnpj = postUsuario.CpfCnpj,
-                    Email = postUsuario.Email,
-                    TipoUsuario = postUsuario.TipoUsuario,
-                    Status = postUsuario.Status,
-                    DataNascimento = postUsuario.DataNascimento,
-                    Telefone = postUsuario.Telefone
-                };
+                var usuario = _mapper.Map<Usuario>(postUsuario);
+
+                //var usuario = new Usuario
+                //{
+                //    NomeCompleto = postUsuario.NomeCompleto,
+                //    Genero = postUsuario.Genero,
+                //    CpfCnpj = postUsuario.CpfCnpj,
+                //    Email = postUsuario.Email,
+                //    TipoUsuario = postUsuario.TipoUsuario,
+                //    Status = postUsuario.Status,
+                //    DataNascimento = postUsuario.DataNascimento,
+                //    Telefone = postUsuario.Telefone
+                //};
 
                 return await _usuariosRepository.CreateAsync(usuario);
             }

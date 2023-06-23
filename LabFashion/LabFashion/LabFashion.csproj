@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Mappers\Profiles\PostColecaoProfile - Cópia %282%29.cs" />
+    <Compile Remove="Mappers\Profiles\PostColecaoProfile - Cópia %283%29.cs" />
+    <Compile Remove="Mappers\Profiles\PostColecaoProfile - Cópia %284%29.cs" />
+    <Compile Remove="Mappers\Profiles\PostColecaoProfile - Cópia %285%29.cs" />
+    <Compile Remove="Mappers\Profiles\PostColecaoProfile - Cópia %286%29.cs" />
+    <Compile Remove="Mappers\Profiles\PostColecaoProfile - Cópia.cs" />
+    <Compile Remove="Mappers\Profiles\PutColecaoProfile.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.7">
       <PrivateAssets>all</PrivateAssets>

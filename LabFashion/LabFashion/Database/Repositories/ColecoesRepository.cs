@@ -92,9 +92,15 @@ namespace LabFashion.Database.Repositories
             try
             {
                 if (status == null)
-                    return await _context.Colecoes.ToListAsync();
+                    return await _context.Colecoes
+                        .Include(c => c.Usuario)
+                        .Include(c => c.Modelos)
+                        .ToListAsync();
 
-                return await _context.Colecoes.Where(u => u.EstadoSistema == status).ToListAsync();
+                return await _context.Colecoes.Where(u => u.EstadoSistema == status)
+                        .Include(c => c.Usuario)
+                        .Include(c => c.Modelos)
+                        .ToListAsync();
             }
             catch (Exception e)
             {

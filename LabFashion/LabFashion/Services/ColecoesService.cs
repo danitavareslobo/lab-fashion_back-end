@@ -6,18 +6,20 @@ using LabFashion.Services.Interfaces;
 using LabFashion.Controllers;
 using LabFashion.Database.Repositories;
 using System.Text.RegularExpressions;
+using AutoMapper;
 
 namespace LabFashion.Services
 {
     public class ColecoesService : IColecoesService
     {
+        private readonly IMapper _mapper;
         private readonly IColecoesRepository _colecoesRepository;
 
-        public ColecoesService(IColecoesRepository colecoesRepository)
+        public ColecoesService(IMapper mapper, IColecoesRepository colecoesRepository)
         {
+            _mapper = mapper;
             _colecoesRepository = colecoesRepository;
         }
-
 
         public async Task<bool?> CreateAsync(PostColecao postColecao)
         {
@@ -26,16 +28,17 @@ namespace LabFashion.Services
                 if (await _colecoesRepository.CheckNomeColecaoAsync(postColecao.NomeColecao))
                     return null;
 
-                var colecao = new Colecao
-                {
-                    NomeColecao = postColecao.NomeColecao,
-                    IdResponsavel = postColecao.IdResponsavel,
-                    Marca = postColecao.Marca,
-                    Orcamento = postColecao.Orcamento,
-                    AnoLancamento = postColecao.AnoLancamento,
-                    Estacao = postColecao.Estacao,
-                    EstadoSistema = postColecao.EstadoSistema
-                };
+                var colecao = _mapper.Map<Colecao>(postColecao);
+                //var colecao = new Colecao
+                //{
+                //    NomeColecao = postColecao.NomeColecao,
+                //    IdResponsavel = postColecao.IdResponsavel,
+                //    Marca = postColecao.Marca,
+                //    Orcamento = postColecao.Orcamento,
+                //    AnoLancamento = postColecao.AnoLancamento,
+                //    Estacao = postColecao.Estacao,
+                //    EstadoSistema = postColecao.EstadoSistema
+                //};
 
                 return await _colecoesRepository.CreateAsync(colecao);
             }
@@ -103,12 +106,7 @@ namespace LabFashion.Services
             }
         }
 
-        Task<bool> IColecoesService.UpdateAsync(PutColecao colecao)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<List<Colecao>> GetAllAsync(EstadoSistema? status)
+        public async Task<List<Colecao?>> GetAllAsync(EstadoSistema? status)
         {
             return await _colecoesRepository.GetAllAsync(status);
         }

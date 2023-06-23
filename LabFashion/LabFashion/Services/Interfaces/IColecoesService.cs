@@ -8,10 +8,10 @@ namespace LabFashion.Services.Interfaces
     public interface IColecoesService
     {
         Task<bool?> CreateAsync(PostColecao colecao);
-        Task<bool> UpdateAsync(PutColecao colecao);
+        Task<bool?> UpdateAsync(PutColecao colecao);
         Task<bool?> UpdateEstadoSistemaAsync(int id, EstadoSistema status);
         Task<List<Colecao?>> GetAllAsync(EstadoSistema? status);
-        Task<object?> GetByIdAsync(int id);
+        Task<Colecao?> GetByIdAsync(int id);
         Task<bool?> DeleteAsync(int id);
     }
 }

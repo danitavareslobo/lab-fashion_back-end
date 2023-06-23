@@ -1,23 +1,22 @@
-﻿using LabFashion.Database.Repositories.Interfaces;
+﻿using AutoMapper;
+using LabFashion.Database.Repositories.Interfaces;
+using LabFashion.Models;
 using LabFashion.Models.Enums;
 using LabFashion.Models.ViewModels;
-using LabFashion.Models;
 using LabFashion.Services.Interfaces;
-using LabFashion.Controllers;
-using LabFashion.Database.Repositories;
-using System.Text.RegularExpressions;
 
 namespace LabFashion.Services
 {
     public class ModelosService : IModelosService
     {
+        private readonly IMapper _mapper;
         private readonly IModelosRepository _modelosRepository;
 
-        public ModelosService(IModelosRepository modeloRepository)
+        public ModelosService(IMapper mapper, IModelosRepository modeloRepository)
         {
+            _mapper = mapper;
             _modelosRepository = modeloRepository;
         }
-
 
         public async Task<bool?> CreateAsync(PostModelo postModelo)
         {
@@ -26,13 +25,15 @@ namespace LabFashion.Services
                 if (await _modelosRepository.CheckNomeModeloAsync(postModelo.NomeModelo))
                     return null;
 
-                var modelo = new Modelo
-                {
-                    NomeModelo = postModelo.NomeModelo,
-                    IdColecaoRelacionada = postModelo.IdColecaoRelacionada,
-                    Tipo = postModelo.Tipo,
-                    Layout = postModelo.Layout
-                };
+                var modelo = _mapper.Map<Modelo>(postModelo);
+
+                //var modelo = new Modelo
+                //{
+                //    NomeModelo = postModelo.NomeModelo,
+                //    IdColecaoRelacionada = postModelo.IdColecaoRelacionada,
+                //    Tipo = postModelo.Tipo,
+                //    Layout = postModelo.Layout
+                //};
 
                 return await _modelosRepository.CreateAsync(modelo);
             }

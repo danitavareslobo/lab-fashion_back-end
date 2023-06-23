@@ -7,7 +7,7 @@ namespace LabFashion.Models.ViewModels
     public class PostUsuario
     {
         [Required(ErrorMessage = "O campo Nome Completo é obrigatório.")]
-        public string NomeCommpleto { get; set; }
+        public string NomeCompleto { get; set; }
 
         [Required(ErrorMessage = "O campo Gênero é obrigatório.")]
         public string Genero { get; set; }

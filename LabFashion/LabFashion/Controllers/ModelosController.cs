@@ -40,7 +40,7 @@ namespace LabFashion.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] PostModelo modelo)
+        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] PutModelo modelo)
         {
             try
             {
