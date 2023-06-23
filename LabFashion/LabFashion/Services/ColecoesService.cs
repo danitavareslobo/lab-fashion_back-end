@@ -29,16 +29,7 @@ namespace LabFashion.Services
                     return null;
 
                 var colecao = _mapper.Map<Colecao>(postColecao);
-                //var colecao = new Colecao
-                //{
-                //    NomeColecao = postColecao.NomeColecao,
-                //    IdResponsavel = postColecao.IdResponsavel,
-                //    Marca = postColecao.Marca,
-                //    Orcamento = postColecao.Orcamento,
-                //    AnoLancamento = postColecao.AnoLancamento,
-                //    Estacao = postColecao.Estacao,
-                //    EstadoSistema = postColecao.EstadoSistema
-                //};
+                
 
                 return await _colecoesRepository.CreateAsync(colecao);
             }
