@@ -1,13 +1,17 @@
-<h1  align="center"> Projeto Back-End LabFashion Módulo 2 DEVinAudaces </h1>
+<h1  align="center"> Projeto Back-End LabFashion</h1>
 
-![readme](https://user-images.githubusercontent.com/107322230/230194144-ebff7e29-73e8-46a1-940d-d5678424d4ca.jpg)
+<div align="center">
+
+<img src="https://github.com/danitavareslobo/lab-fashion/assets/107322230/7a43a195-e4ca-4f7d-b05c-2566e1aad548" width= 300>
+ 
+</div>
 
 <br>
  
  
 ## Descrição do Projeto
 
-Projeto desenvolvido para o Módulo de Back-End do curso DEVinHouse - Audaces do SENAI-SC. O Lab Clothing Collection é um software audacioso para gestão de coleções de moda no setor de vestuário desenvolvido para a LABFashion LTDA.
+O Lab Clothing Collection é um software audacioso para gestão de coleções de moda no setor de vestuário desenvolvido para a LABFashion LTDA.
 A LABFashion LTDA deseja, através do software LAB Clothing Collection, gerenciar suas coleções e modelos de vestuário criados por determinados usuários da equipe.
 
 <br> 
@@ -16,13 +20,12 @@ A LABFashion LTDA deseja, através do software LAB Clothing Collection, gerencia
 ## Status do Projeto
 
  Projeto entregue  :heavy_check_mark:
- <br>Aguardando correção para aplicar melhorias
-
+ 
 <br>
 
 ## Requisitos da Aplicação
 - `API Rest desenvolvida em C# com uso de .NET` 
-- `Utilizar banco de dados SQL Server Express`
+- `Banco de dados SQL Server Express`
 <br>
  
  
