@@ -2,12 +2,12 @@
 
 <div align="center">
 
-<img src="https://github.com/danitavareslobo/lab-fashion/assets/107322230/7a43a195-e4ca-4f7d-b05c-2566e1aad548" width= 300>
+<img src="https://github.com/danitavareslobo/lab-fashion_back-end/assets/107322230/a3429b54-f52b-4382-816e-d4c77bab8674" width= 300>
  
 </div>
 
 <br>
- 
+
  
 ## Descrição do Projeto
 
@@ -42,14 +42,14 @@ A LABFashion LTDA deseja, através do software LAB Clothing Collection, gerencia
 
 <br>
 
-
-https://github.com/danitavareslobo/lab-fashion_back-end/assets/107322230/0a715296-6bf3-4c37-a51e-205900d2ffcf
-
+https://github.com/danitavareslobo/lab-fashion_back-end/assets/107322230/a43d9668-64ec-4fef-93e0-b4fdb3b0243c
 
 <br>
 <br>
 
-![image](https://github.com/danitavareslobo/lab-fashion_back-end/assets/107322230/7004d86d-6ca1-4706-a01a-22fe0b04a5e2)
+
+
+![SQL](https://github.com/danitavareslobo/lab-fashion_back-end/assets/107322230/1b12fe2f-b66c-4920-807e-a6b1a6b3b0ae)
 
 
 
